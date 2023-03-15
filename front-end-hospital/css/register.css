@@ -63,7 +63,7 @@
     color: rgb(8, 16, 38);
     font-size: 20px;
   }
-  #Email, #Password,#date_of_birth, #name ,#foren {
+  #Email, #Password,#date_of_birth, #name ,#foren,#type {
     border: 0;
     border-bottom: 2px solid black;
     width: 80%;
@@ -97,6 +97,12 @@
   input{
     opacity: 0.8;
     background-color: rgb(27, 32, 47);
+  }
+  select{
+    opacity: 0.8;
+    background-color: rgb(27, 32, 47);
+    color: white;
+    font-size: 20px;
   }
   input::placeholder{
     color: white;
