@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+  }
+  body{
+    font-family: Roboto;
+    background-color: #f7f5f5;
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0% 3%;
+    height: 90px;
+  }
+  .left {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  }
+  #head {
+  margin-top: 2px;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  }
+
+  .container h1{
+    color: white;
+    font-size: 100px;
+    margin-top: 350px;
+    text-align: center;
+  }

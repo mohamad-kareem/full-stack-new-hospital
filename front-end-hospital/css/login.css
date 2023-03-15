@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+  }
+  body{
+    font-family: Roboto;
+    background-color: #f7f5f5;
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0% 3%;
+    height: 90px;
+  }
+  .left {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  }
+  #head {
+  margin-top: 2px;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  }
+  .login-block{
+  border: 10px solid #c4cccf;
+  border-radius: 30px;
+  transition: all 0.1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width:fit-content;
+  padding: 30px;
+  }
+  .container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 170px;
+  }
+  .login-title{
+    font-size: 50px;
+    color: rgb(8, 16, 38);
+  }
+  .login-description{
+    max-width: 500px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    color: rgb(8, 16, 38);
+    font-size: 20px;
+  }
+  #Email, #Password{
+    border: 0;
+    border-bottom: 2px solid black;
+    width: 300px;
+    height: 50px;
+    margin-top: 25px;
+  }
+ .forgetpassword{
+    font-size: 20px;
+ }
+  .forgetpassword a{
+    font-size: 25px;
+    color: white;
+  }
+  #Signin-button{
+    background-color:rgb(27, 32, 47);
+    margin-top: 30px;
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    cursor: pointer;
+  }
+  input{
+    opacity: 0.8;
+    background-color: rgb(27, 32, 47);
+  }
+  input::placeholder{
+    color: white;
+    font-size: 20px;
+  }
+  input[type="text"],input[type="password"]{
+    font-size: 20px;
+    color: white;
+  }
