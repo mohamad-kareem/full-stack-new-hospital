@@ -62,17 +62,20 @@ pages.load_login=()=>{
 
         response= await pages.postAPI(login_url,data)
         console.log(response.data);
-
+        console.log(response.data.id)
         if (response.data.usertype_id == 1) {
             localStorage.setItem('usertype', 'patient');
+            localStorage.setItem('user_id', response.data.user_id);
             window.location.href="../html/patient.html";
             
         } else if (response.data.usertype_id == 2) {
             localStorage.setItem('usertype', 'admin');
+            localStorage.setItem('user_id', response.data.user_id);
             window.location.href="../html/admin.html";
             
         } else if (response.data.usertype_id == 3) {
             localStorage.setItem('usertype', 'employee');
+            localStorage.setItem('user_id', response.data.user_id);
             window.location.href="../html/employee.html";
         }
     }
@@ -155,4 +158,38 @@ pages.load_admin = async () => {
 
 };
 
+pages.load_patient = async () => {
+    const get_department_room_url = pages.base_url + 'get-department-rooms.php';
+    const response = await pages.getAPI(get_department_room_url);
+    const patient_choices = response.data;
+    const patient_select = document.querySelector("#department");
+  
+    patient_choices.forEach(choices => {
+      const option = document.createElement("option");
+      option.value = choices.name + ', ' + choices.room_number + ', ' + choices.number_beds;
+      option.text = choices.name + ', Room Number: ' + choices.room_number + ', Number of Beds: ' + choices.number_beds;
+      patient_select.add(option);
+    });
+
+    const assign_employee = async (event) => {
+        event.preventDefault(); 
+        
+    const choose_patient_url = pages.base_url + 'choose-department,room,bed.php'
+
+    let department=document.getElementById("confirm_department").value
+    let room_number = document.getElementById('room_number').value;
+    let bed_number = document.getElementById('bed_number').value;
+    let user_id = localStorage.getItem('usertype').value;
+    let data = new FormData();
+    data.append=("user_id",user_id);
+    data.append=("department",department);
+    data.append('room', room_number);
+    data.append('bed', bed_number);
+
+    let response = await pages.postAPI(choose_patient_url, data);
+    }
+    let choose = document.getElementById("choosing");
+    choose.addEventListener('click', choose_patient_url);
+
+  };
   

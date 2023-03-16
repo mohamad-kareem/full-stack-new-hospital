@@ -17,21 +17,21 @@ if (isset($_POST['employee_name'], $_POST['hospital_name'], $_POST['is_active'],
     $query->bind_result($employee_id);
     $query->fetch();
     $query->close();
-    echo "hospital_id: ".$employee_id."\n"; // Debugging code
+
     $query = $mysqli->prepare('SELECT id FROM hospitals WHERE name=?');
     $query->bind_param('s', $hospital_name);
     $query->execute();
     $query->bind_result($hospital_id);
     $query->fetch();
     $query->close();
-    echo "hospital_id: ".$hospital_id."\n"; // Debugging code
+  
     $query = $mysqli->prepare('SELECT usertype_id FROM users WHERE name=?');
     $query->bind_param('s', $employee_name);
     $query->execute();
     $query->bind_result($user_type_id);
     $query->fetch();
     $query->close();
-    echo "hospital_id: ".$user_type_id."\n"; // Debugging code
+    
     if($user_type_id!=3){
         $response['error'] = "user is not an employee";
         echo $employee_id,$hospital_id;
