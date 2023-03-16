@@ -3,21 +3,18 @@ body {
     color: #333;
     background-color: rgb(149, 149, 215);
   }
+  
 h1 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 16px;
   }
   
-
 label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    
   }
-  
- 
 select {
     width: 30%;
     padding: 12px;
@@ -26,10 +23,8 @@ select {
     box-sizing: border-box;
     margin-bottom: 16px;
   }
-
-input[type="text"],
-input[type="date"],
-input[type="checkbox"] {
+  
+input[type="text"] {
     width: 30%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -38,8 +33,7 @@ input[type="checkbox"] {
     margin-bottom: 16px;
   }
   
-input[type="checkbox"] {
-    transform: scale(3); }
+
 button {
     background-color: #205a22;
     color: white;
@@ -51,8 +45,7 @@ button {
     margin-top: 16px;
   }
   
-
 button:hover {
-    background-color: #45a049;
+    background-color: #228b27;
   }
   
