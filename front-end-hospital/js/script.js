@@ -79,3 +79,21 @@ pages.load_login=()=>{
     let signin_btn = document.getElementById('Signin-button');
     signin_btn.addEventListener('click', login);
 }
+
+pages.load_admin = async () => {
+  const get_hospitals_url = pages.base_url + 'get-hospitals.php';
+
+  const response = await pages.getAPI(get_hospitals_url);
+  const hospitals_names = response.data;
+
+  const hospitalsSelect = document.querySelector("#hospitals");
+
+  hospitals_names.forEach(hospital => {
+    const option = document.createElement("option"); 
+    option.value = hospital.name; 
+    option.text = hospital.name; 
+    hospitalsSelect.add(option); 
+  });
+};
+
+  

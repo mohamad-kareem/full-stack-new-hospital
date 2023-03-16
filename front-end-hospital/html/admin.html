@@ -4,10 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin/title>
+    <title>admin</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
 </head>
 <body>
+
+
+    <h1>Add patient</h1>
+    <form >
+        <label for="hospital-name">Hospital Name:</label>
+        <select name="type" id="hospitals">
+            <option value="hospitals"></option>
+          </select>
+        <br><br><br>
+        <label for="patient-name">Patient Name:</label>
+        <input type="text" id="patient-name-input" name="patient-name"><br><br>
+        
+        <label for="is-active-checkbox">Is active:</label>
+        <input type="checkbox" id="is-active-checkbox" name="is-active"><br><br>
+        
+        <label for="date-joined-input">Date joined:</label>
+        <input type="date" id="patient-date-joined" name="date-joined"><br><br>
+        
+        <button id="submit-patient">submit</button>
+    </form>
+
     <script src="../js/script.js"></script>
+    <script>pages.loadFor("admin");</script>
 </body>
 </html>
