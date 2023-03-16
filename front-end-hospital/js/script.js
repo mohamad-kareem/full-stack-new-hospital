@@ -81,18 +81,26 @@ pages.load_login=()=>{
 }
 
 pages.load_admin = async () => {
-  const get_hospitals_url = pages.base_url + 'get-hospitals.php';
+    const get_hospitals_url = pages.base_url + 'get-hospitals.php';
 
-  const response = await pages.getAPI(get_hospitals_url);
-  const hospitals_names = response.data;
+    const response = await pages.getAPI(get_hospitals_url);
+    const hospitals_names = response.data;
+  
+    const hospitalsSelect = document.querySelector("#hospitals");
+    const hospitalsSelect1 = document.querySelector("#hospitals-emp");
+  
+    hospitals_names.forEach(hospital => {
+      const option = document.createElement("option"); 
+      option.value = hospital.name; 
+      option.text = hospital.name; 
+      hospitalsSelect.add(option); 
 
-  const hospitalsSelect = document.querySelector("#hospitals");
 
-  hospitals_names.forEach(hospital => {
-    const option = document.createElement("option"); 
-    option.value = hospital.name; 
-    option.text = hospital.name; 
-    hospitalsSelect.add(option); 
+      const option1 = document.createElement("option"); 
+      option1.value = hospital.name; 
+      option1.text = hospital.name; 
+      hospitalsSelect1.add(option1);
+  
   });
   const assign_patient = async (event) => {
     event.preventDefault(); 
@@ -112,12 +120,38 @@ pages.load_admin = async () => {
   
     console.log(hospitalname, patientname, isactive, datejoined);
   
-    response = await pages.postAPI(assign_patient_url, data);
+    let response = await pages.postAPI(assign_patient_url, data);
     console.log(response.data);
   }
   
    let add_patient_btn = document.getElementById("submit-patient");
    add_patient_btn.addEventListener('click',assign_patient);
+
+   
+   
+   const assign_employee = async (event) => {
+    event.preventDefault(); 
+    
+    const assign_employee_url = pages.base_url + 'assign-employee.php'
+    
+    let hospitalname = document.getElementById('hospitals-emp').value;
+    let employeename = document.getElementById('employee-name-input').value;
+    let isactive = document.getElementById('is-active').checked;
+    let datejoined = document.getElementById('employee-date-joined').value;
+    
+    let data = new FormData();
+    data.append('hospital_name', hospitalname);
+    data.append('employee_name', employeename);
+    data.append('is_active', isactive);
+    data.append('date_joined', datejoined);
+  
+  
+    let response = await pages.postAPI(assign_employee_url, data);
+    console.log(response.data);
+  }
+
+  let add_employee_btn = document.getElementById("submit-employee");
+  add_employee_btn.addEventListener('click',assign_employee);
 
 };
 
