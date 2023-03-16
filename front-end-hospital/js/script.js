@@ -94,6 +94,31 @@ pages.load_admin = async () => {
     option.text = hospital.name; 
     hospitalsSelect.add(option); 
   });
+  const assign_patient = async (event) => {
+    event.preventDefault(); 
+    
+    const assign_patient_url = pages.base_url + 'assign-patient.php'
+    
+    let hospitalname = document.getElementById('hospitals').value;
+    let patientname = document.getElementById('patient-name-input').value;
+    let isactive = document.getElementById('is-active-checkbox').checked;
+    let datejoined = document.getElementById('patient-date-joined').value;
+    
+    let data = new FormData();
+    data.append('hospital_name', hospitalname);
+    data.append('patient_name', patientname);
+    data.append('is_active', isactive);
+    data.append('date_joined', datejoined);
+  
+    console.log(hospitalname, patientname, isactive, datejoined);
+  
+    response = await pages.postAPI(assign_patient_url, data);
+    console.log(response.data);
+  }
+  
+   let add_patient_btn = document.getElementById("submit-patient");
+   add_patient_btn.addEventListener('click',assign_patient);
+
 };
 
   
