@@ -171,25 +171,28 @@ pages.load_patient = async () => {
       patient_select.add(option);
     });
 
-    const assign_employee = async (event) => {
-        event.preventDefault(); 
+    const choose_patient = async () => {
+      
         
     const choose_patient_url = pages.base_url + 'choose-department,room,bed.php'
 
     let department=document.getElementById("confirm_department").value
     let room_number = document.getElementById('room_number').value;
     let bed_number = document.getElementById('bed_number').value;
-    let user_id = localStorage.getItem('usertype').value;
+    let user_id = localStorage.getItem('user_id');
+    
+    
     let data = new FormData();
-    data.append=("user_id",user_id);
-    data.append=("department",department);
-    data.append('room', room_number);
+    data.append('user_id',user_id);
+    data.append('department_name',department);
+    data.append('room_number', room_number);
     data.append('bed', bed_number);
 
     let response = await pages.postAPI(choose_patient_url, data);
+    console.log(response.data)
     }
     let choose = document.getElementById("choosing");
-    choose.addEventListener('click', choose_patient_url);
+    choose.addEventListener('click',choose_patient);
 
   };
   
